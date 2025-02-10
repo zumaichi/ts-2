@@ -4,10 +4,9 @@ import "./style.css";
 let turno = 0; 
 
 const pintaTurno = () => {
-    const marcador = document.getElementsByClassName("numero-turno");
+    const marcador = document.getElementById("numero-turno");
 
-    if(
-        marcador !==null && marcador !==undefined && marcador instanceof HTMLHeadElement){
+    if(marcador !==null && marcador !==undefined && marcador instanceof HTMLHeadElement){
 
             marcador.textContent = turno.toString().padStart(2, '0');
         }
@@ -21,19 +20,41 @@ const pintaTurno = () => {
   
 
 const eventos = () => {
-    const botonSiguiente = document.getElementsByClassName("siguiente");
+    const botonSiguiente = document.getElementById("siguiente");
 
-    if (
-        botonSiguiente !== null && botonSiguiente !== undefined ){
-            botonSiguiente
-        
-
-
+    if (botonSiguiente !== null && botonSiguiente !== undefined && HTMLButtonElement )  { 
+            botonSiguiente.addEventListener("click", ()=> {
+                turno ++;
+                pintaTurno();
+            });
         }
-            
-   
+    else {
+       console.error("no funciona siguiente turno")
+    }        
     
+    const botonAnterior = document.getElementById("anterior");
+
+    if (botonAnterior !== null && botonSiguiente !== undefined )  { 
+            botonAnterior.addEventListener("click", ()=> {
+                turno --;
+                pintaTurno();
+            });
+        }
+    else {
+       console.error("no funciona turno anterior")
+    }
+        
+       const botonReset = document.getElementById("reset");
+
+       if (botonReset !== null && botonReset !== undefined )  { 
+               botonReset.addEventListener("click", ()=> {
+                   turno >0;
+                   pintaTurno();
+               });
+        }
+       else {
+          console.error("no funciona poner 0")
+       }   
     
-
-
-}
+ 
+    }
