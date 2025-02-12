@@ -1,7 +1,8 @@
 import "./style.css";
 
 
-let turno = 0; 
+let turno = 1; 
+
 
 const pintaTurno = () => {
     const marcador = document.getElementById("numero-turno");
@@ -11,18 +12,19 @@ const pintaTurno = () => {
             marcador.textContent = turno.toString().padStart(2, '0');
         }
      else{
-        console.error("no funciona el mardor de numeros")
+        console.error("no funciona el marcador de numeros")
      }
     
 
 }
 
-  
 
-const eventos = () => {
+
+const eventos =  () => {
+    
     const botonSiguiente = document.getElementById("siguiente");
 
-    if (botonSiguiente !== null && botonSiguiente !== undefined && HTMLButtonElement )  { 
+    if (botonSiguiente !== null && botonSiguiente !== undefined && HTMLButtonElement)  { 
             botonSiguiente.addEventListener("click", ()=> {
                 turno ++;
                 pintaTurno();
@@ -34,7 +36,7 @@ const eventos = () => {
     
     const botonAnterior = document.getElementById("anterior");
 
-    if (botonAnterior !== null && botonSiguiente !== undefined )  { 
+    if (botonAnterior !== null && botonSiguiente !== undefined && HTMLButtonElement)  { 
             botonAnterior.addEventListener("click", ()=> {
                 turno --;
                 pintaTurno();
@@ -46,15 +48,16 @@ const eventos = () => {
         
        const botonReset = document.getElementById("reset");
 
-       if (botonReset !== null && botonReset !== undefined )  { 
+       if (botonReset !== null && botonReset !== undefined && HTMLButtonElement)  { 
                botonReset.addEventListener("click", ()=> {
-                   turno >0;
-                   pintaTurno();
+                turno >0;
+                pintaTurno();
                });
         }
        else {
           console.error("no funciona poner 0")
        }   
-    
+       
  
     }
+    document.addEventListener("DOMContentLoaded", eventos);
