@@ -1,13 +1,11 @@
-import "./style.css";
 
-
-let turno = 1; 
+let turno = 0; 
 
 
 const pintaTurno = () => {
     const marcador = document.getElementById("numero-turno");
 
-    if(marcador !==null && marcador !==undefined && marcador instanceof HTMLHeadElement){
+    if(marcador instanceof HTMLHeadingElement){
 
             marcador.textContent = turno.toString().padStart(2, '0');
         }
@@ -36,8 +34,9 @@ const eventos =  () => {
     
     const botonAnterior = document.getElementById("anterior");
 
-    if (botonAnterior !== null && botonSiguiente !== undefined && HTMLButtonElement)  { 
+    if (botonAnterior !== null && botonSiguiente !== undefined && HTMLButtonElement ) { 
             botonAnterior.addEventListener("click", ()=> {
+                if (turno > 0)
                 turno --;
                 pintaTurno();
             });
@@ -48,10 +47,11 @@ const eventos =  () => {
         
        const botonReset = document.getElementById("reset");
 
-       if (botonReset !== null && botonReset !== undefined && HTMLButtonElement)  { 
+       if (botonReset !== null && botonReset !== undefined && HTMLButtonElement )  { 
                botonReset.addEventListener("click", ()=> {
-                turno >0;
+                turno =0;
                 pintaTurno();
+        
                });
         }
        else {
